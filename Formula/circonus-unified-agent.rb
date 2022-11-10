@@ -71,7 +71,7 @@ class CirconusUnifiedAgent < Formula
   end
 
   service do
-    run [sbin/"circonus-unified-agentd", "--config", pkgetc/"circonus-unified-agent.conf", "--config-dir", pkgetc/"conf.d"]
+    run [opt_sbin/"circonus-unified-agentd", "--config", pkgetc/"circonus-unified-agent.conf", "--config-dir", pkgetc/"conf.d"]
     keep_alive true
     log_path var/"log/circonus-unified-agent.log"
     error_log_path var/"log/circonus-unified-agent.log"
