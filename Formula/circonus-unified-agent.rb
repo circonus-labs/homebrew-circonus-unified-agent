@@ -15,8 +15,8 @@ class CirconusUnifiedAgent < Formula
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
-        etc.install "etc/example-circonus-unified-agent.conf" => "circonus-unified-agent.conf"
-        (etc"/conf.d").install "etc/conf.d/readme.md"
+        pkgetc.install "etc/example-circonus-unified-agent.conf" => "circonus-unified-agent.conf"
+        (pkgetc"/conf.d").mkpath
         doc.install README.md
         doc.install LICENSE
       end
@@ -64,7 +64,7 @@ class CirconusUnifiedAgent < Formula
 
   def caveats
     <<~EOS
-      1. Edit #{etc}/circonus-unified-agent.conf to add your API key.
+      1. Edit #{pkgetc}/circonus-unified-agent.conf to add your API key.
       2. Run brew service start circonus-unified-agent
 
       Or, if upgrading, brew service restart circonus-unified-agent
@@ -72,7 +72,7 @@ class CirconusUnifiedAgent < Formula
   end
 
   service do
-    run [sbin/"circonus-unified-agentd", "--config", etc/"circonus-unified-agent.conf", "--config-dir", etc/"conf.d"]
+    run [sbin/"circonus-unified-agentd", "--config", pkgetc/"circonus-unified-agent.conf", "--config-dir", pkgetc/"conf.d"]
     keep_alive true
     log_path var/"log/circonus-unified-agent.log"
     error_log_path var/"log/circonus-unified-agent.log"
