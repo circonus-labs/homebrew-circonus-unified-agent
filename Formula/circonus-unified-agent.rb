@@ -16,7 +16,7 @@ class CirconusUnifiedAgent < Formula
       def install
         sbin.install "sbin/circonus-unified-agentd"
         pkgetc.install "etc/example-circonus-unified-agent.conf" => "circonus-unified-agent.conf"
-        (pkgetc"/conf.d").mkpath
+        (pkgetc/"conf.d").mkpath
         doc.install README.md
         doc.install LICENSE
       end
