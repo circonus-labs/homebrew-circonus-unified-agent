@@ -17,8 +17,7 @@ class CirconusUnifiedAgent < Formula
         sbin.install "sbin/circonus-unified-agentd"
         pkgetc.install "etc/example-circonus-unified-agent.conf" => "circonus-unified-agent.conf"
         (pkgetc/"conf.d").mkpath
-        doc.install README.md
-        doc.install LICENSE
+        doc.install "README.md", "LICENSE"
       end
     end
     if Hardware::CPU.intel?
