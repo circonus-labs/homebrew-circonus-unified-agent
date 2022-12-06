@@ -5,13 +5,13 @@
 class CirconusUnifiedAgent < Formula
   desc "Circonus Unified Agent"
   homepage "https://circonus.com"
-  version "0.2.5"
+  version "0.2.6"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.5/circonus-unified-agent_0.2.5_darwin_arm64.tar.gz"
-      sha256 "ebf5aefbf84a5dab0b50daff1f24336ca2b0dead3e14723c9c251ba63e1f4cb2"
+      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.6/circonus-unified-agent_0.2.6_darwin_arm64.tar.gz"
+      sha256 "eeb907e8a33c61a84e2c5b53991dcf8150bae8a62756d10876042b6715c6ee1d"
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
@@ -21,8 +21,8 @@ class CirconusUnifiedAgent < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.5/circonus-unified-agent_0.2.5_darwin_x86_64.tar.gz"
-      sha256 "2d441f3f55489b49d112a74de04cdfd24da674c9bcc716baa96ddd2185c42314"
+      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.6/circonus-unified-agent_0.2.6_darwin_x86_64.tar.gz"
+      sha256 "7cf73cd66f082e7d16d459232dc4329025073a94c4a1b4cd5c59b5dae52e9872"
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
@@ -35,8 +35,8 @@ class CirconusUnifiedAgent < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.5/circonus-unified-agent_0.2.5_linux_arm64.tar.gz"
-      sha256 "e67068ec55467fb0674f07a1480852fb094633d5e5445cad1b08e399dda55618"
+      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.6/circonus-unified-agent_0.2.6_linux_arm64.tar.gz"
+      sha256 "227405759a897416eef1d730d7204e6414ced76b5e19d8cbbb3af47ec162878b"
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
@@ -46,8 +46,8 @@ class CirconusUnifiedAgent < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.5/circonus-unified-agent_0.2.5_linux_x86_64.tar.gz"
-      sha256 "71d152b8048e7288231f4423939d4ae16c547ba3ab538525bd61a89fdfb954bc"
+      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.6/circonus-unified-agent_0.2.6_linux_x86_64.tar.gz"
+      sha256 "801c5c8e08a45c77952ae99c997c4254e99e153412c994b55d36afbc940ae59d"
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
@@ -60,10 +60,10 @@ class CirconusUnifiedAgent < Formula
 
   def caveats
     <<~EOS
-      1. Edit #{pkgetc}/circonus-unified-agent.conf to add your API key.
-      2. Run brew services start circonus-unified-agent
+      1. Edit #{plist_name} and add your API token in API_TOKEN environment variable setting
+      2. Run "brew services start circonus-unified-agent"
 
-      Or, if upgrading, brew services restart circonus-unified-agent
+      Or, if upgrading, run "brew services restart circonus-unified-agent"
     EOS
   end
 
