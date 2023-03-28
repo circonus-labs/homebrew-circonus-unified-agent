@@ -5,13 +5,13 @@
 class CirconusUnifiedAgent < Formula
   desc "Circonus Unified Agent"
   homepage "https://circonus.com"
-  version "0.2.10"
+  version "0.2.11"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.10/circonus-unified-agent_0.2.10_darwin_arm64.tar.gz"
-      sha256 "40e342c5ee2d376ef3ad898f80794da86355ba07cb92ac280b57d7f6e3e5e1e2"
+      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.11/circonus-unified-agent_0.2.11_darwin_arm64.tar.gz"
+      sha256 "725cecd14495ba2a9671ae3221a0bb7eb48e06387f34c9308cb74c67ee979352"
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
@@ -21,8 +21,8 @@ class CirconusUnifiedAgent < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.10/circonus-unified-agent_0.2.10_darwin_amd64.tar.gz"
-      sha256 "66126e19aa7c606a90c2f4720116dbcd828de7774e9e444121cd2008575423ae"
+      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.11/circonus-unified-agent_0.2.11_darwin_amd64.tar.gz"
+      sha256 "2453232715f58dc5fa4f0b5b527754dc55c124fbd88295ae4f371ad5f45a66b9"
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
@@ -35,8 +35,8 @@ class CirconusUnifiedAgent < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.10/circonus-unified-agent_0.2.10_linux_arm64.tar.gz"
-      sha256 "81b0e16e72e66a8719ec8aa3bdcf34a5ffb2684790d74b683a2c5a881ee86577"
+      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.11/circonus-unified-agent_0.2.11_linux_arm64.tar.gz"
+      sha256 "96ce3a031d5d1e84834abf54b30a4dcd0552e946edd9cb55d1c103019e0a4b5c"
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
@@ -46,8 +46,8 @@ class CirconusUnifiedAgent < Formula
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.10/circonus-unified-agent_0.2.10_linux_amd64.tar.gz"
-      sha256 "1f6f11fe608a68a81d957b20a52ca00369feee009ef87b1852357fe2f02c445c"
+      url "https://github.com/circonus-labs/circonus-unified-agent/releases/download/v0.2.11/circonus-unified-agent_0.2.11_linux_amd64.tar.gz"
+      sha256 "e99a8b9bce3eae9d515c389e4a36f0accf3ddc2de37a73d87729934763a91850"
 
       def install
         sbin.install "sbin/circonus-unified-agentd"
